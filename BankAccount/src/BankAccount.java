@@ -12,7 +12,7 @@ public class BankAccount {
      * @param setBalance the desired balance to apply as a double.
      */
 	public BankAccount(Customer setCustomer, double setBalance) {
-		this.customer = setCustomer;
+	    this.customer = setCustomer;
 		this.balance = setBalance;
 	}
 
