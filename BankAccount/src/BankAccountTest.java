@@ -10,8 +10,8 @@ public class BankAccountTest
         BankAccount b = new BankAccount();
         assertEquals("Expected initial balance to be 0.0", 0.0, b.getBalance(), 0.00001);
     }
-	
-	@Test
+
+    @Test
 	public void test_constructorWithCustomerAndBalance()
 	{
 		Customer c = new Customer("John Doe", 321);

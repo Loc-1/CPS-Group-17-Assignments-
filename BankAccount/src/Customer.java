@@ -1,17 +1,37 @@
 /**
  * Class containing instance variables for a Customer's name and id.
  */
-public class Customer {
+public class Customer extends BankAccount {
     private String name;
     private int customerID;
 
     /**
-     * @param setName       the customer's name as a string.
-     * @param setCustomerID the customers ID as an int.
+     * Creates a new customer with params.
+     *
+     * @param setName       the desired name as a String.
+     * @param setCustomerID the desired customer ID.
      */
     public Customer(String setName, int setCustomerID) {
         this.name = setName;
         this.customerID = setCustomerID;
+    }
+
+    /**
+     * Copies a customer object when a customer object is passed.
+     *
+     * @param setCustomer the customer object to copy.
+     */
+    public Customer(Customer setCustomer) {
+        this.name = setCustomer.name;
+        this.customerID = setCustomer.customerID;
+    }
+
+    /**
+     * Creates a default customer.
+     */
+    public Customer() {
+        this.name = "";
+        this.customerID = 0;
     }
 
     /**
@@ -29,11 +49,11 @@ public class Customer {
         this.name = n;
     }
 
-    public int getCustomerID() {
+    public int getID() {
         return this.customerID;
     }
 
-    public void setCustomerID(int i) {
+    public void setID(int i) {
         this.customerID = i;
     }
 

@@ -8,12 +8,21 @@ public class BankAccount {
     private Customer customer;
 
     /**
+     * Constructor with params.
+     *
      * @param setCustomer the customer's customer instance.
      * @param setBalance  the desired balance to apply as a double.
      */
     public BankAccount(Customer setCustomer, double setBalance) {
         this.customer = setCustomer;
         this.balance = setBalance;
+    }
+
+    /**
+     *
+     */
+    public BankAccount() {
+        this.balance = 0;
     }
 
     /**
