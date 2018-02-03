@@ -29,6 +29,4 @@ public class Customer {
 
 	public void setCustomerID(int i) { this.customerID = i; }
 
-
-
 }
