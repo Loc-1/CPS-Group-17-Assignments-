@@ -44,7 +44,7 @@ public class BankAccount {
      */
     public void withdraw(double amount) {
         if (amount > this.overdraftAmount + this.balance) {
-            System.out.println("You can not withdraw more than $" + this.overdraftAmount + " over your balance of "
+            System.out.println("You can not withdraw more than $" + this.overdraftAmount + " over your balance of $"
                     + this.balance);
         } else {
             this.balance = this.balance - amount;
