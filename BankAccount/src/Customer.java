@@ -45,16 +45,8 @@ public class Customer extends BankAccount {
         return this.name;
     }
 
-    public void setName(String n) {
-        this.name = n;
-    }
-
     public int getID() {
         return this.customerID;
-    }
-
-    public void setID(int i) {
-        this.customerID = i;
     }
 
 }

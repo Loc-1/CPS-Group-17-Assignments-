@@ -19,7 +19,7 @@ public class BankAccount {
     }
 
     /**
-     *
+     * A default account with a balance of 0.
      */
     public BankAccount() {
         this.balance = 0;
