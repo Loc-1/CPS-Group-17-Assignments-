@@ -55,6 +55,10 @@ public class BankAccount {
     public void setOverdraftAmount(double newAmount) {
         this.overdraftAmount = newAmount;
     }
+    
+    public void setCustomer(Customer newCustomer) {
+    	this.customer = newCustomer;
+    }
 
     public double getBalance() {
         return this.balance;

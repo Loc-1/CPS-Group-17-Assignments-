@@ -40,6 +40,14 @@ public class Customer extends BankAccount {
     public String toString() {
         return "Customer: " + this.name + ", " + this.customerID;
     }
+    
+    public void setName(String newName) {
+    	this.name = newName;
+    }
+    
+    public void setID(int newCustomerID) {
+    	this.customerID = newCustomerID;
+    }
 
     public String getName() {
         return this.name;
