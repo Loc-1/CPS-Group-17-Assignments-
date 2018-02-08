@@ -51,19 +51,31 @@ public class BankAccount {
         }
 
     }
-
+    
+    /**
+     * Sets the overdraft amount.
+     */
     public void setOverdraftAmount(double newAmount) {
         this.overdraftAmount = newAmount;
     }
     
+    /**
+     * Sets the customer.
+     */
     public void setCustomer(Customer newCustomer) {
     	this.customer = newCustomer;
     }
-
+    
+    /**
+     * @return the current balance.
+     */
     public double getBalance() {
         return this.balance;
     }
-
+    
+    /**
+     * @return the customer.
+     */
     public Customer getCustomer() {
         return this.customer;
     }
