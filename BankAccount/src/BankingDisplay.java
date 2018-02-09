@@ -1,0 +1,91 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+
+public class BankingDisplay extends JFrame {
+
+    private JPanel contentPane;
+    private JTextField withdrawField;
+    private JTextField depositField;
+
+    /**
+     * Launch the application.
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    BankingDisplay frame = new BankingDisplay();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    /**
+     * Create the frame.
+     */
+    public BankingDisplay() {
+        Customer c = new Customer("Test Name",001);
+        BankAccount b1 = new BankAccount(c,100.0);
+        String startBalance = "" + b1.getBalance();
+        
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 450, 181);
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        contentPane.setLayout(new BorderLayout(0, 0));
+        setContentPane(contentPane);
+        
+        JPanel panel = new JPanel();
+        contentPane.add(panel, BorderLayout.CENTER);
+        
+        JLabel lblCurrentBalance = new JLabel("Current Balance: " + startBalance);
+        contentPane.add(lblCurrentBalance, BorderLayout.SOUTH);
+        
+        JLabel lblCustomer = new JLabel(c.getName());
+        contentPane.add(lblCustomer, BorderLayout.NORTH);
+        
+        withdrawField = new JTextField();
+        panel.add(withdrawField);
+        withdrawField.setColumns(10);
+        
+        JButton withdrawButton = new JButton("Withdraw");
+        withdrawButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                double inputNum = Double.parseDouble(withdrawField.getText());
+                c.withdraw(inputNum);
+                String balance = "Current Balance: " + b1.getBalance();
+                lblCurrentBalance.setText(balance);
+            }
+        });
+        panel.add(withdrawButton);
+        
+        depositField = new JTextField();
+        panel.add(depositField);
+        depositField.setColumns(10);
+        
+        JButton depositButton = new JButton("Deposit");
+        depositButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                double inputNum = Double.parseDouble(depositField.getText());
+                c.deposit(inputNum);
+                String balance = "Current Balance: " + b1.getBalance();
+                lblCurrentBalance.setText(balance);
+            }
+        });
+        panel.add(depositButton);
+        
+    }
+
+}
