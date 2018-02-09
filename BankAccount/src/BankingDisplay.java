@@ -37,8 +37,8 @@ public class BankingDisplay extends JFrame {
      */
     public BankingDisplay() {
         Customer c = new Customer("Test Name",001);
-        BankAccount b1 = new BankAccount(c,100.0);
-        String startBalance = "" + b1.getBalance();
+        BankAccount b1 = new BankAccount(c,0);
+        String startBalance = "" + c.getBalance();
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 181);
@@ -65,7 +65,7 @@ public class BankingDisplay extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 double inputNum = Double.parseDouble(withdrawField.getText());
                 c.withdraw(inputNum);
-                String balance = "Current Balance: " + b1.getBalance();
+                String balance = "Current Balance: " + c.getBalance();
                 lblCurrentBalance.setText(balance);
             }
         });
@@ -80,7 +80,7 @@ public class BankingDisplay extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 double inputNum = Double.parseDouble(depositField.getText());
                 c.deposit(inputNum);
-                String balance = "Current Balance: " + b1.getBalance();
+                String balance = "Current Balance: " + c.getBalance();
                 lblCurrentBalance.setText(balance);
             }
         });
