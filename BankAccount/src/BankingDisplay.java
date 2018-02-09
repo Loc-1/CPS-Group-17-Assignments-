@@ -87,5 +87,28 @@ public class BankingDisplay extends JFrame {
         panel.add(depositButton);
 
     }
+    
+    /**
+     * This method is used to extract numbers from a textField string
+     * @param str
+     * @return
+     */
+    public static String extractNum(String str) {
+        if (str == null || str.isEmpty()) {
+            System.out.println("No number found");
+            return "0";
+        }
+        StringBuilder sb = new StringBuilder();
+        boolean ifFound = false;
+        for(char c : str.toCharArray()) {
+            if (Character.isDigit(c)) {
+                sb.append(c);
+                ifFound = true;
+            } else if (ifFound) {
+                break;
+            }
+        }
+        return sb.toString();
+    }
 
 }
