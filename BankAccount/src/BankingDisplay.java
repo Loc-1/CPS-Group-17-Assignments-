@@ -104,7 +104,7 @@ public class BankingDisplay extends JFrame {
         StringBuilder sb = new StringBuilder();
         boolean ifFound = false;
         for (char c : str.toCharArray()) {
-            if (Character.isDigit(c) || c == '.') {
+            if (Character.isDigit(c) || c == '.' || c == '-') {
                 sb.append(c);
                 ifFound = true;
             } else if (ifFound) {
