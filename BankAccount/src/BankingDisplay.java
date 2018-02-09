@@ -36,30 +36,30 @@ public class BankingDisplay extends JFrame {
      * Create the frame.
      */
     public BankingDisplay() {
-        Customer c = new Customer("Test Name",001);
-        BankAccount b1 = new BankAccount(c,0);
+        Customer c = new Customer("Test Name", 001);
+        BankAccount b1 = new BankAccount(c, 0);
         String startBalance = "" + c.getBalance();
-        
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 181);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         contentPane.setLayout(new BorderLayout(0, 0));
         setContentPane(contentPane);
-        
+
         JPanel panel = new JPanel();
         contentPane.add(panel, BorderLayout.CENTER);
-        
+
         JLabel lblCurrentBalance = new JLabel("Current Balance: " + startBalance);
         contentPane.add(lblCurrentBalance, BorderLayout.SOUTH);
-        
+
         JLabel lblCustomer = new JLabel(c.getName());
         contentPane.add(lblCustomer, BorderLayout.NORTH);
-        
+
         withdrawField = new JTextField();
         panel.add(withdrawField);
         withdrawField.setColumns(10);
-        
+
         JButton withdrawButton = new JButton("Withdraw");
         withdrawButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -70,11 +70,11 @@ public class BankingDisplay extends JFrame {
             }
         });
         panel.add(withdrawButton);
-        
+
         depositField = new JTextField();
         panel.add(depositField);
         depositField.setColumns(10);
-        
+
         JButton depositButton = new JButton("Deposit");
         depositButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -85,7 +85,7 @@ public class BankingDisplay extends JFrame {
             }
         });
         panel.add(depositButton);
-        
+
     }
 
 }
