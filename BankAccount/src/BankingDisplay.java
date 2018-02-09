@@ -63,7 +63,8 @@ public class BankingDisplay extends JFrame {
         JButton withdrawButton = new JButton("Withdraw");
         withdrawButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                double inputNum = Double.parseDouble(withdrawField.getText());
+                String s = extractNum(withdrawField.getText());
+                double inputNum = Double.parseDouble(s);
                 c.withdraw(inputNum);
                 String balance = "Current Balance: " + c.getBalance();
                 lblCurrentBalance.setText(balance);
@@ -78,7 +79,8 @@ public class BankingDisplay extends JFrame {
         JButton depositButton = new JButton("Deposit");
         depositButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                double inputNum = Double.parseDouble(depositField.getText());
+                String s = extractNum(depositField.getText());
+                double inputNum = Double.parseDouble(s);
                 c.deposit(inputNum);
                 String balance = "Current Balance: " + c.getBalance();
                 lblCurrentBalance.setText(balance);
@@ -87,9 +89,10 @@ public class BankingDisplay extends JFrame {
         panel.add(depositButton);
 
     }
-    
+
     /**
      * This method is used to extract numbers from a textField string
+     * 
      * @param str
      * @return
      */
@@ -100,8 +103,8 @@ public class BankingDisplay extends JFrame {
         }
         StringBuilder sb = new StringBuilder();
         boolean ifFound = false;
-        for(char c : str.toCharArray()) {
-            if (Character.isDigit(c)) {
+        for (char c : str.toCharArray()) {
+            if (Character.isDigit(c) || c == '.') {
                 sb.append(c);
                 ifFound = true;
             } else if (ifFound) {
