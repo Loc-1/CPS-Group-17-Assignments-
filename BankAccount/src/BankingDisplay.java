@@ -10,6 +10,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
+/**
+ * This class is a frame to display the user's balance. Includes a GUI to allow
+ * deposits and withdrawls.
+ * 
+ * @author Lachlan
+ *
+ */
 public class BankingDisplay extends JFrame {
 
     private JPanel contentPane;
@@ -61,6 +68,10 @@ public class BankingDisplay extends JFrame {
         withdrawField.setColumns(10);
 
         JButton withdrawButton = new JButton("Withdraw");
+        /**
+         * withdraw button withdraws a amount selected by the user in the withdraw text
+         * field
+         */
         withdrawButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String s = extractNum(withdrawField.getText());
@@ -77,6 +88,10 @@ public class BankingDisplay extends JFrame {
         depositField.setColumns(10);
 
         JButton depositButton = new JButton("Deposit");
+        /**
+         * deposit button deposits a amount selected by the user in the deposit text
+         * field
+         */
         depositButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String s = extractNum(depositField.getText());
