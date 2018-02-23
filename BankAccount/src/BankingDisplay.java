@@ -9,6 +9,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 /**
  * This class is a frame to display the user's balance. Includes a GUI to allow
@@ -48,26 +51,30 @@ public class BankingDisplay extends JFrame {
         String startBalance = "" + c.getBalance();
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 450, 181);
+        setBounds(100, 100, 309, 190);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-        contentPane.setLayout(new BorderLayout(0, 0));
         setContentPane(contentPane);
+        contentPane.setLayout(null);
 
         JPanel panel = new JPanel();
-        contentPane.add(panel, BorderLayout.CENTER);
-
-        JLabel lblCurrentBalance = new JLabel("Current Balance: " + startBalance);
-        contentPane.add(lblCurrentBalance, BorderLayout.SOUTH);
-
-        JLabel lblCustomer = new JLabel(c.getName());
-        contentPane.add(lblCustomer, BorderLayout.NORTH);
+        panel.setBounds(5, 0, 312, 143);
+        contentPane.add(panel);
 
         withdrawField = new JTextField();
-        panel.add(withdrawField);
+        withdrawField.setBounds(13, 29, 116, 22);
         withdrawField.setColumns(10);
+        
+        JLabel lblCurrentBalance = new JLabel("Current Balance: " + startBalance);
+        lblCurrentBalance.setBounds(13, 114, 152, 16);
+        panel.add(lblCurrentBalance);
+
+        JLabel lblCustomer = new JLabel(c.getName());
+        lblCustomer.setBounds(12, 0, 67, 16);
+        panel.add(lblCustomer);
 
         JButton withdrawButton = new JButton("Withdraw");
+        withdrawButton.setBounds(12, 64, 117, 25);
         /**
          * withdraw button withdraws a amount selected by the user in the withdraw text
          * field
@@ -81,13 +88,13 @@ public class BankingDisplay extends JFrame {
                 lblCurrentBalance.setText(balance);
             }
         });
-        panel.add(withdrawButton);
 
         depositField = new JTextField();
-        panel.add(depositField);
+        depositField.setBounds(157, 29, 116, 22);
         depositField.setColumns(10);
 
         JButton depositButton = new JButton("Deposit");
+        depositButton.setBounds(157, 64, 116, 25);
         /**
          * deposit button deposits a amount selected by the user in the deposit text
          * field
@@ -101,7 +108,11 @@ public class BankingDisplay extends JFrame {
                 lblCurrentBalance.setText(balance);
             }
         });
+        panel.setLayout(null);
+        panel.add(withdrawField);
+        panel.add(withdrawButton);
         panel.add(depositButton);
+        panel.add(depositField);
 
     }
 
